@@ -12,8 +12,8 @@ def main_loop():
                     'key': 'FFmpegExtractAudio',
                     'preferredcodec': 'mp3',
                     'preferredquality': '256',
-                    }],
-                }
+                }],
+            }
         else:
             ydl_opts = {}
         return ydl_opts
@@ -22,10 +22,10 @@ def main_loop():
         with youtube_dl.YoutubeDL(opts) as ydl:
             ydl.download([link])
 
-    link_file = open('urls.txt')
-    for line in link_file:
-        downloader(line, options())
-        print("Done")
+    input_link = input('Enter link here: ')
+    downloader(input_link, options())
+
 
 if __name__ == '__main__':
-    main_loop()
+    while True:
+        main_loop()
